@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Kecamatan Trimurjo - Kontak</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" /> 
+<script type="text/JavaScript" src="js/slimbox2.js"></script> 
+
+<style>
+    /* Styling for buttons and notification */
+    .submit_btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .submit_btn.float_l { /* Send button */
+        color: black;
+        background-color: #4CAF50; /* Green background */
+        border: 2px solid #4CAF50; /* Green border */
+    }
+    .submit_btn.float_l:hover {
+        background-color: #45a049;
+        border-color: #45a049;
+    }
+    .submit_btn.float_r { /* Reset button */
+        color: black;
+        background-color: #f44336; /* Red background */
+        border: 2px solid #f44336; /* Red border */
+    }
+    .submit_btn.float_r:hover {
+        background-color: #da190b;
+        border-color: #da190b;
+    }
+    .success-message {
+        display: none;
+        color: #4CAF50;
+        font-size: 14px;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #e8f5e9;
+        border-radius: 4px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<div id="templatemo_wrapper">
+    <div id="templatemo_header">
+        <div id="site_title"><h1><a href="#">Kontak Form</a></h1></div>
+        <div id="twitter"><a class="twitter rss_twitter" href="https://x.com/polsektrimurjo1">Ikuti Kami</a></div>
+        <div class="cleaner"></div>
+    </div>
+    
+    <div id="templatemo_menu">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="peta.html">Peta</a></li>
+            <li><a href="berita.html">Berita</a></li>
+            <li><a href="kontak.html" class="current">Kontak</a></li>
+        </ul>       
+        <div class="cleaner"></div>
+    </div> <!-- end of templatemo_menu -->
+    
+    <div id="templatemo_middle_subpage">
+        <h2>Informasi Kontak</h2>
+        <p>Selamat datang di halaman kontak Kecamatan Trimurjo, Kabupaten Lampung Tengah. Kami hadir untuk membantu warga dengan informasi dan layanan penting. Hubungi kami untuk pertanyaan atau bantuan terkait administrasi dan kegiatan lokal.</p>
+    </div>
+
+    <div id="tm_top"></div>
+    <div id="templatemo_main">
+    
+        <div class="col_w900 col_w900_last">
+            <div class="col_w420 float_l">
+                <h3>Formulir Kontak</h3>
+                <div id="cp_contact_form">
+                    <!-- Ganti 'your-formspree-id' dengan ID dari Formspree setelah mendaftar -->
+                    <form method="post" name="contact" action="https://formspree.io/f/your-formspree-id">
+                        <label for="author">Nama:</label>
+                        <input name="author" type="text" class="input_field" id="author" maxlength="60" required />
+                        <div class="cleaner_h10"></div>
+                        
+                        <label for="email">Email Anda:</label>
+                        <input name="email" type="email" class="input_field" id="email" maxlength="60" required />
+                        <div class="cleaner_h10"></div>
+                        
+                        <label for="subject">Subjek:</label>
+                        <input name="subject" type="text" class="input_field" id="subject" maxlength="60" required />
+                        <div class="cleaner_h10"></div>
+
+                        <label for="text">Pesan:</label>
+                        <textarea id="text" name="text" rows="5" cols="30" class="required" required></textarea>
+                        <div class="cleaner_h10"></div>
+                        <div class="cleaner_h10"></div>
+                        
+                        <input type="submit" class="submit_btn float_l" name="submit" id="submit" value="Send" />
+                        <input type="reset" class="submit_btn float_r" name="reset" id="reset" value="Reset" />
+                    </form>
+                    <div class="success-message" id="success-message">Sukses Terkirim!</div>
+                </div>
+                <br><br>
+            </div>
+            
+            <div class="col_w420 float_r" id="map">
+                <h3>Gambar Lokasi</h3>
+                <a href="images/map_kontak.jpg" title="Lokasi Kantor Kami" rel="lightbox">
+                    <img src="images/map_kontak.jpg" alt="Map" />
+                </a>
+                <div class="cleaner h30"></div>
+                
+                <h3></h3>
+                <h6><a href="http://diskominfotik.lampungtengahkab.go.id/" target="_blank" rel="noopener">Diskominfotik Lampung Tengah</a></h6>
+                Kecamatan Trimurjo, Kabupaten Lampung Tengah,<br />
+                <a href="mailto:kelurahan@lampungtengahkab.go.id"><i class="fa fa-envelope"></i>kelurahan@lampungtengahkab.go.id</a><br />
+                <br />
+   
+             </div>
+            
+            <div class="cleaner"></div>
+        </div>
+        
+        <div class="cleaner"></div>
+    </div> <!-- end of main -->
+    <div id="tm_bottom"></div>
+    
+    <div id="templatemo_footer">
+        Copyright © 2025 <a href="#">Kecamatan Trimurjo</a>
+    </div> <!-- end of footer -->
+</div> <!-- end of wrapper -->
+
+<script>
+    // JavaScript untuk menangani pengiriman form dan notifikasi
+    $(document).ready(function() {
+        $('#cp_contact_form form').on('submit', function(e) {
+            // Formspree akan menangani pengiriman ke email
+            // Tampilkan notifikasi sukses setelah submit
+            setTimeout(function() {
+                $('#success-message').fadeIn();
+                setTimeout(function() {
+                    $('#success-message').fadeOut();
+                }, 3000); // Notifikasi hilang setelah 3 detik
+            }, 1000); // Delay 1 detik untuk simulasi pengiriman
+        });
+    });
+</script>
+</body>
+</html>
