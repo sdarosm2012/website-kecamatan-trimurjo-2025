@@ -15,7 +15,7 @@ function clearText(field)
 }
 </script>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" /> 
 <script type="text/JavaScript" src="js/slimbox2.js"></script> 
 
@@ -57,20 +57,30 @@ function clearText(field)
         border-radius: 4px;
         text-align: center;
     }
+    .error-message {
+        display: none;
+        color: #f44336;
+        font-size: 14px;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #ffebee;
+        border-radius: 4px;
+        text-align: center;
+    }
 </style>
 </head>
 <body>
 
 <div id="templatemo_wrapper">
     <div id="templatemo_header">
-        <div id="site_title"><h1><a href="#">Kontak Form</a></h1></div>
+        <div id="site_title"><h1><a href="#">Smoky Template</a></h1></div>
         <div id="twitter"><a class="twitter rss_twitter" href="https://x.com/polsektrimurjo1">Ikuti Kami</a></div>
         <div class="cleaner"></div>
     </div>
     
     <div id="templatemo_menu">
         <ul>
-            <li><a href="index.html">Beranda</a></li>
+            <li><a href="beranda.html">Beranda</a></li>
             <li><a href="profil.html">Profil</a></li>
             <li><a href="peta.html">Peta</a></li>
             <li><a href="berita.html">Berita</a></li>
@@ -91,13 +101,13 @@ function clearText(field)
             <div class="col_w420 float_l">
                 <h3>Formulir Kontak</h3>
                 <div id="cp_contact_form">
-                    <!-- Ganti 'your-formspree-id' dengan ID dari Formspree setelah mendaftar -->
-                    <form method="post" name="contact" action="https://formspree.io/f/your-formspree-id">
+                    <!-- Ganti 'your-formspree-id' dengan ID dari Formspree (dari akun shafadindaar@gmail.com, kirim ke sdarosm@gmail.com) -->
+                    <form method="post" name="contact" id="contact-form" action="https://formspree.io/f/your-formspree-id">
                         <label for="author">Nama:</label>
                         <input name="author" type="text" class="input_field" id="author" maxlength="60" required />
                         <div class="cleaner_h10"></div>
                         
-                        <label for="email">Email Anda:</label>
+                        <label for="email">Email:</label>
                         <input name="email" type="email" class="input_field" id="email" maxlength="60" required />
                         <div class="cleaner_h10"></div>
                         
@@ -114,6 +124,7 @@ function clearText(field)
                         <input type="reset" class="submit_btn float_r" name="reset" id="reset" value="Reset" />
                     </form>
                     <div class="success-message" id="success-message">Sukses Terkirim!</div>
+                    <div class="error-message" id="error-message">Gagal mengirim. Silakan coba lagi.</div>
                 </div>
                 <br><br>
             </div>
@@ -129,9 +140,9 @@ function clearText(field)
                 <h6><a href="http://diskominfotik.lampungtengahkab.go.id/" target="_blank" rel="noopener">Diskominfotik Lampung Tengah</a></h6>
                 Kecamatan Trimurjo, Kabupaten Lampung Tengah,<br />
                 <a href="mailto:kelurahan@lampungtengahkab.go.id"><i class="fa fa-envelope"></i>kelurahan@lampungtengahkab.go.id</a><br />
-                <br />
-   
-             </div>
+                <p>Email Admin: sdarosm@gmail.com</p>
+               
+            </div>
             
             <div class="cleaner"></div>
         </div>
@@ -146,17 +157,40 @@ function clearText(field)
 </div> <!-- end of wrapper -->
 
 <script>
-    // JavaScript untuk menangani pengiriman form dan notifikasi
+    // JavaScript untuk menangani pengiriman form dengan AJAX
     $(document).ready(function() {
-        $('#cp_contact_form form').on('submit', function(e) {
-            // Formspree akan menangani pengiriman ke email
-            // Tampilkan notifikasi sukses setelah submit
-            setTimeout(function() {
-                $('#success-message').fadeIn();
-                setTimeout(function() {
-                    $('#success-message').fadeOut();
-                }, 3000); // Notifikasi hilang setelah 3 detik
-            }, 1000); // Delay 1 detik untuk simulasi pengiriman
+        $('#contact-form').on('submit', function(e) {
+            e.preventDefault(); // Mencegah redirect default
+            
+            var form = $(this);
+            var formData = form.serialize();
+            var successMessage = $('#success-message');
+            var errorMessage = $('#error-message');
+            
+            // Kirim data ke Formspree via AJAX
+            $.ajax({
+                url: form.attr('action'),
+                method: 'POST',
+                data: formData,
+                headers: {
+                    'Accept': 'application/json'
+                },
+                success: function(response) {
+                    console.log('Form submitted successfully:', response);
+                    successMessage.fadeIn();
+                    form[0].reset(); // Reset form setelah sukses
+                    setTimeout(function() {
+                        successMessage.fadeOut();
+                    }, 3000); // Notifikasi hilang setelah 3 detik
+                },
+                error: function(xhr, status, error) {
+                    console.error('Form submission failed:', status, error);
+                    errorMessage.fadeIn();
+                    setTimeout(function() {
+                        errorMessage.fadeOut();
+                    }, 3000); // Pesan error hilang setelah 3 detik
+                }
+            });
         });
     });
 </script>
